@@ -15,6 +15,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
+        let service = Service(baseUrl:"https://www.metaweather.com/api/location/search/?")
+        
+        service.getLocationWoeid(latlong: "36.96,-122.02")
+        
+        
         mapView.delegate = self
         let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
         mapView.addGestureRecognizer(longTapGesture)
