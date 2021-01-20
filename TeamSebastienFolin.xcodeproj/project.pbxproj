@@ -18,6 +18,7 @@
 		EC5BF71B25B84C52001BE939 /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BF71A25B84C52001BE939 /* weather.swift */; };
 		EC5BF71D25B86693001BE939 /* ConsolidatedWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BF71C25B86693001BE939 /* ConsolidatedWeather.swift */; };
 		EC5BF71F25B886E7001BE939 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BF71E25B886E7001BE939 /* WeatherViewController.swift */; };
+		EC5BF72125B8E9AC001BE939 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BF72025B8E9AC001BE939 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EC5BF71A25B84C52001BE939 /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
 		EC5BF71C25B86693001BE939 /* ConsolidatedWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsolidatedWeather.swift; sourceTree = "<group>"; };
 		EC5BF71E25B886E7001BE939 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		EC5BF72025B8E9AC001BE939 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				EC5BF70D25B7194D001BE939 /* LaunchScreen.storyboard */,
 				EC5BF71025B7194D001BE939 /* Info.plist */,
 				EC5BF71825B774DF001BE939 /* Location.swift */,
+				EC5BF72025B8E9AC001BE939 /* Reachability.swift */,
 			);
 			path = TeamSebastienFolin;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				EC5BF71925B774DF001BE939 /* Location.swift in Sources */,
 				EC5BF71F25B886E7001BE939 /* WeatherViewController.swift in Sources */,
 				EC5BF70325B7194A001BE939 /* AppDelegate.swift in Sources */,
+				EC5BF72125B8E9AC001BE939 /* Reachability.swift in Sources */,
 				EC5BF70525B7194A001BE939 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
