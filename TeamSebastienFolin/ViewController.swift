@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Alamofire
 
+
 class ViewController: UIViewController {
      let baseUrl = "https://www.metaweather.com/api/location/search/?lattlong="
      var baseUrlWeather = "https://www.metaweather.com/api/location/"
@@ -72,7 +73,7 @@ class ViewController: UIViewController {
                                     vc.setPressionAir(PressionAir: String(Int(resWeather.consolidated_weather[0].air_pressure))+" mbar")
                                     vc.setHuminidite(Huminidite: String(Int(resWeather.consolidated_weather[0].humidity))+"%")
                                     vc.setVisiblite(Visiblite: String(Int(resWeather.consolidated_weather[0].visibility))+" miles")
-                                    
+                                    vc.setIcone(url: "https://www.metaweather.com/static/img/weather/png/64/"+resWeather.consolidated_weather[0].weather_state_abbr+".png")
                                     
                                     guard let navController = self?.navigationController else {
                                         print("pas de nav")

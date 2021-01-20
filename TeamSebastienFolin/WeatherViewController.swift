@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WeatherViewController: UIViewController {
 
@@ -42,6 +43,7 @@ class WeatherViewController: UIViewController {
         titre.text = inTitre
         temp.text = inTemp
         
+        icone.sd_setImage(with: URL(string: inIcone ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
         
         // Do any additional setup after loading the view.
     }
@@ -73,6 +75,10 @@ class WeatherViewController: UIViewController {
     }
     func setTemp(Temp: String){
         self.inTemp = Temp
+    }
+    
+    func setIcone(url: String){
+        self.inIcone = url
     }
     /*
     // MARK: - Navigation
