@@ -47,17 +47,39 @@ class ViewController: UIViewController {
                     let locations = try JSONDecoder().decode([Location].self, from: data)
                         //print(locations)
                        let wd = locations[0].woeid
+                        print(locations[0].title)
                         //-------------------------- GET WEATHER
-                        self.baseUrlWeather += String(wd)
+                        
                         print(self.baseUrlWeather)
                         
                         AF
-                            .request(self.baseUrlWeather)
+                            .request(self.baseUrlWeather+String(wd))
                             .validate(statusCode: [200])
                             .responseDecodable(of: ConsolidatedWeather.self) {[weak self] (resp) in
                                 switch resp.result {
                                 case .success(let resWeather):
-                                    print(resWeather.consolidated_weather[0])
+                                    print(resWeather.consolidated_weather[0].weather_state_name)
+
+                                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let vc = storyboard.instantiateViewController(identifier: "weatherVC") as! WeatherViewController
+                                    
+                                    vc.setTitre(titre: String(Int(resWeather.consolidated_weather[0].min_temp)) + "° -  "+String(Int(resWeather.consolidated_weather[0].max_temp))+"° | "+locations[0].title)
+                                    
+                                    vc.setTemp(Temp: String(Int(resWeather.consolidated_weather[0].the_temp))+"°")
+                                    
+                                    vc.setVitesseVent(VitesseVent: String(Int(resWeather.consolidated_weather[0].wind_speed))+" maph")
+                                    vc.setDirectionVent(DirectionVent: resWeather.consolidated_weather[0].wind_direction_compass)
+                                    vc.setPressionAir(PressionAir: String(Int(resWeather.consolidated_weather[0].air_pressure))+" mbar")
+                                    vc.setHuminidite(Huminidite: String(Int(resWeather.consolidated_weather[0].humidity))+"%")
+                                    vc.setVisiblite(Visiblite: String(Int(resWeather.consolidated_weather[0].visibility))+" miles")
+                                    
+                                    
+                                    guard let navController = self?.navigationController else {
+                                        print("pas de nav")
+                                        return
+                                    }
+                                    navController.pushViewController(vc, animated: true)
+                                    
                                 case .failure(let error):
                                     print(error)
                                 }

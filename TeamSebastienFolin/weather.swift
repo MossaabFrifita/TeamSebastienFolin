@@ -33,8 +33,9 @@ struct weather : Decodable {
     var max_temp: Double
     var wind_direction: Double
     var wind_direction_compass : String
+    var wind_speed : Double
     enum CodingKeys: String, CodingKey {
-        case weather_state_name,weather_state_abbr, the_temp, air_pressure, humidity, visibility, min_temp, max_temp, wind_direction, wind_direction_compass
+        case weather_state_name,weather_state_abbr, the_temp, air_pressure, humidity, visibility, min_temp, max_temp, wind_direction, wind_direction_compass,wind_speed
     }
     
 }

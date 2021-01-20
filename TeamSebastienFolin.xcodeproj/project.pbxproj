@@ -17,6 +17,7 @@
 		EC5BF71925B774DF001BE939 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BF71825B774DF001BE939 /* Location.swift */; };
 		EC5BF71B25B84C52001BE939 /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BF71A25B84C52001BE939 /* weather.swift */; };
 		EC5BF71D25B86693001BE939 /* ConsolidatedWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BF71C25B86693001BE939 /* ConsolidatedWeather.swift */; };
+		EC5BF71F25B886E7001BE939 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BF71E25B886E7001BE939 /* WeatherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EC5BF71825B774DF001BE939 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EC5BF71A25B84C52001BE939 /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
 		EC5BF71C25B86693001BE939 /* ConsolidatedWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsolidatedWeather.swift; sourceTree = "<group>"; };
+		EC5BF71E25B886E7001BE939 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				EC5BF70225B7194A001BE939 /* AppDelegate.swift */,
 				EC5BF71C25B86693001BE939 /* ConsolidatedWeather.swift */,
 				EC5BF70425B7194A001BE939 /* SceneDelegate.swift */,
+				EC5BF71E25B886E7001BE939 /* WeatherViewController.swift */,
 				EC5BF71A25B84C52001BE939 /* weather.swift */,
 				EC5BF70625B7194A001BE939 /* ViewController.swift */,
 				EC5BF70825B7194A001BE939 /* Main.storyboard */,
@@ -219,6 +222,7 @@
 				EC5BF71D25B86693001BE939 /* ConsolidatedWeather.swift in Sources */,
 				EC5BF70725B7194A001BE939 /* ViewController.swift in Sources */,
 				EC5BF71925B774DF001BE939 /* Location.swift in Sources */,
+				EC5BF71F25B886E7001BE939 /* WeatherViewController.swift in Sources */,
 				EC5BF70325B7194A001BE939 /* AppDelegate.swift in Sources */,
 				EC5BF70525B7194A001BE939 /* SceneDelegate.swift in Sources */,
 			);

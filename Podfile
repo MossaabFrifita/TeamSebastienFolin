@@ -8,5 +8,6 @@ target 'TeamSebastienFolin' do
   # Pods for TeamSebastienFolin
   pod 'Alamofire', '~> 5.2'
  #pod 'Kingfisher', '~> 6.0'
+  pod 'SDWebImage', '~> 5.0'
 
 end
