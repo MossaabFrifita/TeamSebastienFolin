@@ -12,6 +12,7 @@ import Alamofire
 
 class ViewController: UIViewController {
      let baseUrl = "https://www.metaweather.com/api/location/search/?lattlong="
+     var baseUrlWeather = "https://www.metaweather.com/api/location/"
     
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
@@ -46,8 +47,25 @@ class ViewController: UIViewController {
                     let locations = try JSONDecoder().decode([Location].self, from: data)
                         //print(locations)
                        let wd = locations[0].woeid
-                       print( wd)
-                        print("here you are")
+                        //-------------------------- GET WEATHER
+                        self.baseUrlWeather += String(wd)
+                        print(self.baseUrlWeather)
+                        
+                        AF
+                            .request(self.baseUrlWeather)
+                            .validate(statusCode: [200])
+                            .responseDecodable(of: ConsolidatedWeather.self) {[weak self] (resp) in
+                                switch resp.result {
+                                case .success(let resWeather):
+                                    print(resWeather.consolidated_weather[0])
+                                case .failure(let error):
+                                    print(error)
+                                }
+                            }
+                        
+                        //-------------------------------------
+                      
+                        
 
                     } catch {
                        print(error)
