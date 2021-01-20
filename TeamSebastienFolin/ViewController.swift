@@ -8,17 +8,14 @@
 
 import UIKit
 import MapKit
+import Alamofire
 
 class ViewController: UIViewController {
-
+     let baseUrl = "https://www.metaweather.com/api/location/search/?lattlong="
+    
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        let service = Service(baseUrl:"https://www.metaweather.com/api/location/search/?lattlong=")
-        
-        service.getLocationWoeid(latlong: "36.96,-122.02")
-        
         
         mapView.delegate = self
         let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
@@ -35,6 +32,29 @@ class ViewController: UIViewController {
             print(locationOnMap.latitude)
             print(locationOnMap.longitude)
             
+           let  lt = String(locationOnMap.latitude)
+           let  lg = String(locationOnMap.longitude)
+            
+            let lattlong = "\(lt),\(lg)"
+            let params = [
+                "lattlong": lattlong]
+
+            AF.request(self.baseUrl, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil).responseString {
+                (responseData) in
+                 guard let data = responseData.data else {return}
+                    do {
+                    let locations = try JSONDecoder().decode([Location].self, from: data)
+                        //print(locations)
+                       let wd = locations[0].woeid
+                       print( wd)
+                        print("here you are")
+
+                    } catch {
+                       print(error)
+                   
+                    }
+                    
+                }
             
         }
     }
