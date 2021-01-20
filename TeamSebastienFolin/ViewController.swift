@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         if sender.state == .began {
             let locationInView = sender.location(in: mapView)
             let locationOnMap = mapView.convert(locationInView, toCoordinateFrom: mapView)
-            //addAnnotation(location: locationOnMap)
+            
             print(locationOnMap.latitude)
             print(locationOnMap.longitude)
             
@@ -63,6 +63,8 @@ class ViewController: UIViewController {
 
                                     let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                                     let vc = storyboard.instantiateViewController(identifier: "weatherVC") as! WeatherViewController
+                                    
+                                    self?.addAnnotation(location: locationOnMap,titre: locations[0].title,temp: String(Int(resWeather.consolidated_weather[0].the_temp))+"°")
                                     
                                     vc.setTitre(titre: String(Int(resWeather.consolidated_weather[0].min_temp)) + "° -  "+String(Int(resWeather.consolidated_weather[0].max_temp))+"° | "+locations[0].title)
                                     
@@ -99,7 +101,13 @@ class ViewController: UIViewController {
             
         }
     }
-
+    func addAnnotation(location: CLLocationCoordinate2D, titre : String, temp : String){
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            annotation.title = titre
+            annotation.subtitle = temp
+            self.mapView.addAnnotation(annotation)
+    }
 }
 
 extension ViewController: MKMapViewDelegate{
