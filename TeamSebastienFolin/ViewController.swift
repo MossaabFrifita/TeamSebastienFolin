@@ -95,6 +95,7 @@ class ViewController: UIViewController {
                                     
                                 case .failure(let error):
                                     print(error)
+                                    self?.notifError()
                                 }
                             }
                         
@@ -104,7 +105,7 @@ class ViewController: UIViewController {
 
                     } catch {
                        print(error)
-                   
+                       self.notifError()
                     }
                     
                 }
@@ -117,6 +118,12 @@ class ViewController: UIViewController {
             annotation.title = titre
             annotation.subtitle = temp
             self.mapView.addAnnotation(annotation)
+    }
+    
+    func notifError(){
+        let alert = UIAlertController(title: "erreur", message: "les données sont actuellement indisponible", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
