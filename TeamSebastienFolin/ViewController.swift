@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        let service = Service(baseUrl:"https://www.metaweather.com/api/location/search/?")
+        let service = Service(baseUrl:"https://www.metaweather.com/api/location/search/?lattlong=")
         
         service.getLocationWoeid(latlong: "36.96,-122.02")
         
