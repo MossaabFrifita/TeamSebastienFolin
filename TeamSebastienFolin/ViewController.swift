@@ -80,6 +80,10 @@ class ViewController: UIViewController {
                                     
                                     self?.addAnnotation(lat : locationOnMap.latitude, long: locationOnMap.longitude,titre: locations[0].title,temp: String(Int(resWeather.consolidated_weather[0].the_temp))+"°")
                                     
+                                    vc.setDemain(demain: String(Int(resWeather.consolidated_weather[1].min_temp)) + "° -  "+String(Int(resWeather.consolidated_weather[1].max_temp))+"°")
+                                    
+                                    vc.setApremDemain(apremdemain: String(Int(resWeather.consolidated_weather[2].min_temp)) + "° -  "+String(Int(resWeather.consolidated_weather[2].max_temp))+"°")
+                                    
                                     vc.setTitre(titre: String(Int(resWeather.consolidated_weather[0].min_temp)) + "° -  "+String(Int(resWeather.consolidated_weather[0].max_temp))+"° | "+locations[0].title)
                                     
                                     vc.setTemp(Temp: String(Int(resWeather.consolidated_weather[0].the_temp))+"°")
@@ -90,7 +94,8 @@ class ViewController: UIViewController {
                                     vc.setHuminidite(Huminidite: String(Int(resWeather.consolidated_weather[0].humidity))+"%")
                                     vc.setVisiblite(Visiblite: String(Int(resWeather.consolidated_weather[0].visibility))+" miles")
                                     vc.setIcone(url: "https://www.metaweather.com/static/img/weather/png/64/"+resWeather.consolidated_weather[0].weather_state_abbr+".png")
-                                    
+                                                                        vc.setIconeDemain(url: "https://www.metaweather.com/static/img/weather/png/"+resWeather.consolidated_weather[1].weather_state_abbr+".png")
+                                                                        vc.setIconeApresDemain(url: "https://www.metaweather.com/static/img/weather/png/"+resWeather.consolidated_weather[2].weather_state_abbr+".png")
                                     //init dataWeather to insert data into db
                                     
                                     let dw = DataWeather()

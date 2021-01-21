@@ -10,7 +10,16 @@ import UIKit
 import SDWebImage
 
 class WeatherViewController: UIViewController {
-
+    
+    @IBOutlet weak var imgDemain: UIImageView!
+    
+    @IBOutlet weak var imgApresDemain: UIImageView!
+    
+    
+    @IBOutlet weak var apresDemain: UILabel!
+    
+    @IBOutlet weak var demain: UILabel!
+    
     @IBOutlet weak var visibilite: UILabel!
     @IBOutlet weak var huminidite: UILabel!
     @IBOutlet weak var PressionAir: UILabel!
@@ -29,8 +38,11 @@ class WeatherViewController: UIViewController {
     private var inVitesseVent : String?
     private var inTitre : String?
     private var inIcone : String?
+    private var inDemain : String?
+    private var inApresDemain : String?
     
-    
+    private var inIconeDemain : String?
+    private var inIconeApresDemain : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +54,12 @@ class WeatherViewController: UIViewController {
         vitesseVent.text = inVitesseVent
         titre.text = inTitre
         temp.text = inTemp
+        demain.text = inDemain
+        apresDemain.text = inApresDemain
         
         icone.sd_setImage(with: URL(string: inIcone ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
-        
+        imgDemain.sd_setImage(with: URL(string: inIconeDemain ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+        imgApresDemain.sd_setImage(with: URL(string: inIconeApresDemain ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
         // Do any additional setup after loading the view.
     }
     
@@ -76,9 +91,24 @@ class WeatherViewController: UIViewController {
     func setTemp(Temp: String){
         self.inTemp = Temp
     }
+    func setDemain(demain: String){
+        self.inDemain = demain
+    }
+    
+    func setApremDemain(apremdemain: String){
+        self.inApresDemain = apremdemain
+    }
     
     func setIcone(url: String){
         self.inIcone = url
+    }
+    
+    func setIconeDemain(url: String){
+        self.inIconeDemain = url
+    }
+    
+    func setIconeApresDemain(url: String){
+        self.inIconeApresDemain = url
     }
     /*
     // MARK: - Navigation
